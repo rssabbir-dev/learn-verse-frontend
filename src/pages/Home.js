@@ -1,9 +1,11 @@
 import React from 'react';
+import MultiViewCourseCarousel from '../components/carousel/MultiViewCourseCarousel';
 import DisplayCourses from '../components/DisplayCourses';
 
 const Home = () => {
     return (
-        <div>
+        <div className='space-y-10'>
+            <MultiViewCourseCarousel />
             <DisplayCourses/>
         </div>
     );
