@@ -1,12 +1,50 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthProvider/AuthProvider';
 
 const Registration = () => {
+	const { createUser, updateUserProfile } = useContext(AuthContext);
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		const form = event.target;
+		const firstName = form.firstName.value;
+		const lastName = form.lastName.value;
+		const photoURL = form.photoURL.value;
+		const email = form.email.value;
+		const password = form.password.value;
+		const fullName = firstName + ' ' + lastName;
+		handleCreateUser(email,password,fullName,photoURL)
+	};
+
+	const handleCreateUser = (email, password, name, photo) => {
+		createUser(email, password)
+			.then((res) => {
+				
+				handleUpdateUserProfile(name,photo)
+				const user = res.user;
+				console.log(user);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+	const handleUpdateUserProfile = (name, photo) => {
+		const profileData = { displayName: name, photoURL: photo };
+		updateUserProfile(profileData)
+			.then(() => {
+				console.log('update name and photo');
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
 	return (
 		<div className='flex justify-center'>
 			<div className='card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100'>
-				<div className='card-body'>
-					<h1 className='text-4xl font-bold opacity-30 select-none'>Register now!</h1>
+				<form onSubmit={handleSubmit} className='card-body'>
+					<h1 className='text-4xl font-bold opacity-30 select-none'>
+						Register now!
+					</h1>
 					<div className='grid grid-cols-2 gap-5'>
 						<div className='form-control'>
 							<label className='label'>
@@ -68,7 +106,9 @@ const Registration = () => {
 						</label>
 					</div>
 					<div className='form-control mt-6'>
-						<button className='btn btn-primary'>Register Now</button>
+						<button className='btn btn-primary'>
+							Register Now
+						</button>
 					</div>
 					<label className='text-sm text-center'>
 						<span>Have An Account? </span>
@@ -76,7 +116,7 @@ const Registration = () => {
 							Login Now
 						</Link>
 					</label>
-				</div>
+				</form>
 			</div>
 		</div>
 	);
