@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider/AuthProvider';
 
 const Registration = () => {
-	const { createUser, updateUserProfile } = useContext(AuthContext);
+	const { createUser, updateUserProfile, sendVerifyEmailCode } =
+	useContext(AuthContext);
+	const navigate = useNavigate();
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const form = event.target;
@@ -13,19 +16,27 @@ const Registration = () => {
 		const email = form.email.value;
 		const password = form.password.value;
 		const fullName = firstName + ' ' + lastName;
-		handleCreateUser(email,password,fullName,photoURL)
+		handleCreateUser(email, password, fullName, photoURL);
 	};
 
 	const handleCreateUser = (email, password, name, photo) => {
 		createUser(email, password)
 			.then((res) => {
-				
-				handleUpdateUserProfile(name,photo)
+				handleUpdateUserProfile(name, photo);
+				sendVerifyEmailCode()
+					.then(() => {
+						toast.success('Registration Success, Now Verify Your Email');
+						navigate('/login')
+					})
+					.catch((error) => {
+						toast.error(error.message)
+					});
 				const user = res.user;
 				console.log(user);
 			})
 			.catch((error) => {
 				console.log(error);
+				toast.error(error.message);
 			});
 	};
 	const handleUpdateUserProfile = (name, photo) => {
@@ -36,6 +47,7 @@ const Registration = () => {
 			})
 			.catch((error) => {
 				console.log(error);
+				toast.error(error.message);
 			});
 	};
 	return (
@@ -54,6 +66,7 @@ const Registration = () => {
 								type='text'
 								placeholder='Kuddus'
 								className='input input-bordered'
+								name='firstName'
 							/>
 						</div>
 						<div className='form-control'>
@@ -64,6 +77,7 @@ const Registration = () => {
 								type='text'
 								placeholder='Ali'
 								className='input input-bordered'
+								name='lastName'
 							/>
 						</div>
 					</div>
@@ -75,6 +89,7 @@ const Registration = () => {
 							type='url'
 							placeholder='Set Photo URL'
 							className='input input-bordered'
+							name='photoURL'
 						/>
 					</div>
 					<div className='form-control'>
@@ -85,6 +100,7 @@ const Registration = () => {
 							type='text'
 							placeholder='you@example.com'
 							className='input input-bordered'
+							name='email'
 						/>
 					</div>
 					<div className='form-control'>
@@ -95,6 +111,7 @@ const Registration = () => {
 							type='text'
 							placeholder='Set Password'
 							className='input input-bordered'
+							name='password'
 						/>
 						<label className='label'>
 							<Link
