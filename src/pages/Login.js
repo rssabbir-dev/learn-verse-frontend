@@ -1,10 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthProvider/AuthProvider';
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from.pathname || '/';
+  const handleSubmit = (event) => {
+		event.preventDefault();
+		const form = event.target;
+		const email = form.email.value;
+    const password = form.password.value;
+    handleLoginUser(email,password)
+  };
+  const handleLoginUser = (email, password) => {
+    loginUser(email, password)
+      .then((res => {
+        const user = res.user;
+        console.log(user);
+        if (user.emailVerified) {
+          toast.success('Login Success')
+          navigate(from,{replace:true})
+        }
+        else {
+          toast.error('Verify Email Before Login')
+        }
+      }))
+      .catch(error => {
+        toast.error(error.message);
+    })
+  }
 	return (
 		<div className='flex justify-center'>
-			<div className='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
+			<form onSubmit={handleSubmit} className='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
 				<div className='card-body'>
 					<h1 className='text-4xl font-bold opacity-30 select-none'>
 						Login now!
@@ -14,9 +44,10 @@ const Login = () => {
 							<span className='label-text'>Email</span>
 						</label>
 						<input
-							type='text'
+							type='email'
 							placeholder='email'
-							className='input input-bordered'
+              className='input input-bordered'
+              name='email'
 						/>
 					</div>
 					<div className='form-control'>
@@ -26,7 +57,8 @@ const Login = () => {
 						<input
 							type='text'
 							placeholder='password'
-							className='input input-bordered'
+              className='input input-bordered'
+              name='password'
 						/>
 						<label className='label'>
 							<Link
@@ -47,7 +79,7 @@ const Login = () => {
 						</Link>
 					</label>
 				</div>
-			</div>
+			</form>
 		</div>
 	);
 };
