@@ -9,8 +9,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Navigation, Pagination, Autoplay } from 'swiper';
-
-import { serverURL } from '../../App';
+import { serverURL } from '../../routes/routes';
 
 const MultiViewCourseCarousel = () => {
 	const [courses, setCourses] = useState([]);

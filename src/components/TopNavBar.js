@@ -55,7 +55,9 @@ const TopNavBar = () => {
 						</li>
 					</ul>
 				</div>
-				<Link to='/' className='btn btn-ghost normal-case text-xl'>LearnVerse</Link>
+				<Link to='/' className='btn btn-ghost normal-case text-xl'>
+					LearnVerse
+				</Link>
 			</div>
 			<div className='navbar-center hidden lg:flex'>
 				<ul className='menu menu-horizontal p-0'>
@@ -78,9 +80,7 @@ const TopNavBar = () => {
 			</div>
 			<div className='navbar-end gap-4'>
 				<label className='swap swap-rotate'>
-					<input
-						type='checkbox'
-					/>
+					<input type='checkbox' />
 					<svg
 						className='swap-on fill-current w-10 h-10'
 						xmlns='http://www.w3.org/2000/svg'
@@ -101,7 +101,8 @@ const TopNavBar = () => {
 					<div className='dropdown dropdown-end'>
 						<label
 							tabIndex={0}
-							className='btn btn-ghost btn-circle avatar'
+							className='btn btn-ghost btn-circle avatar tooltip tooltip-left'
+							data-tip={user?.displayName}
 						>
 							<div className='w-10 rounded-full'>
 								<img src={user?.photoURL} alt='' />
@@ -112,7 +113,9 @@ const TopNavBar = () => {
 							className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'
 						>
 							<li>
-								<span>{user?.displayName}</span>
+								<span className='text-lg'>
+									{user?.displayName}
+								</span>
 							</li>
 							<li>
 								<Link to='/profile' className='justify-between'>
