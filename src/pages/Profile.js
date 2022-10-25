@@ -1,5 +1,5 @@
 import React, { useContext,  useRef, useState } from 'react';
-// import { FaRegTimesCircle, FaUserEdit } from 'react-icons/fa';
+import { FaRegTimesCircle, FaUserEdit } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../context/AuthProvider/AuthProvider';
 
@@ -48,7 +48,7 @@ const Profile = () => {
 								className='text-xl cursor-pointer text-red-500 flex justify-center items-center space-x-1'
 							>
 								<span>Cancel</span>
-								{/* <FaRegTimesCircle /> */}
+								<FaRegTimesCircle />
 							</div>
 						) : (
 							<div
@@ -56,7 +56,7 @@ const Profile = () => {
 								className='text-xl cursor-pointer hover:text-red-500 flex justify-center items-center space-x-1'
 							>
 								<span>Edit</span>
-								{/* <FaUserEdit /> */}
+								<FaUserEdit />
 							</div>
 						)}
 					</div>
