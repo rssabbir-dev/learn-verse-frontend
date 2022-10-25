@@ -6,18 +6,16 @@ import { AuthContext } from '../context/AuthProvider/AuthProvider';
 
 const Registration = () => {
 	const { createUser, updateUserProfile, sendVerifyEmailCode } =
-	useContext(AuthContext);
+		useContext(AuthContext);
 	const navigate = useNavigate();
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const form = event.target;
-		const firstName = form.firstName.value;
-		const lastName = form.lastName.value;
+		const name = form.name.value;
 		const photoURL = form.photoURL.value;
 		const email = form.email.value;
 		const password = form.password.value;
-		const fullName = firstName + ' ' + lastName;
-		handleCreateUser(email, password, fullName, photoURL);
+		handleCreateUser(email, password, name, photoURL);
 	};
 
 	const handleCreateUser = (email, password, name, photo) => {
@@ -26,11 +24,13 @@ const Registration = () => {
 				handleUpdateUserProfile(name, photo);
 				sendVerifyEmailCode()
 					.then(() => {
-						toast.success('Registration Success, Now Verify Your Email');
-						navigate('/login')
+						toast.success(
+							'Registration Success, Now Verify Your Email'
+						);
+						navigate('/login');
 					})
 					.catch((error) => {
-						toast.error(error.message)
+						toast.error(error.message);
 					});
 				const user = res.user;
 				console.log(user);
@@ -59,33 +59,17 @@ const Registration = () => {
 						<h1 className='text-4xl font-bold opacity-30 select-none'>
 							Register now!
 						</h1>
-						<div className='grid grid-cols-2 gap-5'>
-							<div className='form-control'>
-								<label className='label'>
-									<span className='label-text'>
-										First Name
-									</span>
-								</label>
-								<input
-									type='text'
-									placeholder='Kuddus'
-									className='input input-bordered'
-									name='firstName'
-								/>
-							</div>
-							<div className='form-control'>
-								<label className='label'>
-									<span className='label-text'>
-										Last Name
-									</span>
-								</label>
-								<input
-									type='text'
-									placeholder='Ali'
-									className='input input-bordered'
-									name='lastName'
-								/>
-							</div>
+						<div className='form-control'>
+							<label className='label'>
+								<span className='label-text'>Full Name</span>
+							</label>
+							<input
+								type='text'
+								placeholder='Kuddus Ali'
+								className='input input-bordered'
+								name='name'
+								required
+							/>
 						</div>
 						<div className='form-control'>
 							<label className='label'>
@@ -96,6 +80,7 @@ const Registration = () => {
 								placeholder='Set Photo URL'
 								className='input input-bordered'
 								name='photoURL'
+								
 							/>
 						</div>
 						<div className='form-control'>
@@ -104,9 +89,10 @@ const Registration = () => {
 							</label>
 							<input
 								type='text'
-								placeholder='you@example.com'
+								placeholder='your@example.com'
 								className='input input-bordered'
 								name='email'
+								required
 							/>
 						</div>
 						<div className='form-control'>
@@ -118,6 +104,7 @@ const Registration = () => {
 								placeholder='Set Password'
 								className='input input-bordered'
 								name='password'
+								required
 							/>
 							<label className='label'>
 								<Link
@@ -142,7 +129,7 @@ const Registration = () => {
 					</form>
 					<div>
 						<h1 className='divider'>OR</h1>
-						<ProviderLogin/>
+						<ProviderLogin />
 					</div>
 				</div>
 			</div>

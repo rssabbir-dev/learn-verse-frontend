@@ -17,7 +17,7 @@ const ResponsiveCourseCard = ({ course }) => {
 				<p>Click the button to listen on Spotiwhy app.</p>
 				<div className='card-actions justify-end'>
 					<Link to={`/course/${id}`}>
-						<button className='btn btn-primary'>
+						<button className='btn bg-customPrimary border-customPrimary hover:bg-transparent hover:text-black'>
 							View Details
 						</button>
 					</Link>

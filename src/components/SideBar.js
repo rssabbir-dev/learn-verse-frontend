@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthProvider/AuthProvider';
 import { serverURL } from '../routes/routes';
+import ProviderLogin from './ProviderLogin';
 
 const SideBar = () => {
+    const {user} = useContext(AuthContext)
 	const [categories, setCategories] = useState([]);
 	useEffect(() => {
 		fetch(`${serverURL}/category`)
@@ -14,25 +17,36 @@ const SideBar = () => {
     }, []);
 	return (
 		<div>
-			<div>
-				<h4 className='text-2xl text-center divider'>
-					All Category
-				</h4>
-				<div className='grid gap-5 grid-cols-2 md:grid-cols-1'>
-					<Category
-						category={{
-							category: 'All Courses',
-							category_img:
-                                'https://cdn-icons-png.flaticon.com/512/443/443635.png',
-                            category_id:'all'
-						}}
-					/>
-					{categories.map((category) => (
+			<div className='space-y-5'>
+				<div>
+					<h4 className='text-2xl text-center divider'>
+						All Category
+					</h4>
+					<div className='grid gap-5 grid-cols-2 md:grid-cols-1'>
 						<Category
-							category={category}
-							key={category.category_id}
+							category={{
+								category: 'All Courses',
+								category_img:
+									'https://cdn-icons-png.flaticon.com/512/443/443635.png',
+								category_id: 'all',
+							}}
 						/>
-					))}
+						{categories.map((category) => (
+							<Category
+								category={category}
+								key={category.category_id}
+							/>
+						))}
+					</div>
+				</div>
+				<div>
+					<Link to='/login'>
+						<button className='btn btn-block btn-primary'>
+							Login
+						</button>
+					</Link>
+					<h3 className='divider'>OR</h3>
+					{!user?.uid && <ProviderLogin />}
 				</div>
 			</div>
 		</div>

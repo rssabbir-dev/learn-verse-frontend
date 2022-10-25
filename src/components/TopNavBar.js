@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider/AuthProvider';
+import missingUserImg from '../assets/img/missing-user-img.png'
 
 const TopNavBar = () => {
 	const { user, logOut } = useContext(AuthContext);
@@ -12,6 +13,10 @@ const TopNavBar = () => {
 			.catch((error) => {
 				console.log(error);
 			});
+	};
+
+	let activeStyle = {
+		background: '#7FBF50',
 	};
 
 	return (
@@ -39,19 +44,54 @@ const TopNavBar = () => {
 						className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'
 					>
 						<li>
-							<Link to='/'>Home</Link>
+							<Link className='active:bg-customPrimary' to='/'>
+								Home
+							</Link>
 						</li>
 						<li>
-							<Link to='/courses'>Courses</Link>
+							<NavLink
+								style={({ isActive }) =>
+									isActive ? activeStyle : undefined
+								}
+								className='active:bg-customPrimary'
+								to='/courses/all'
+							>
+								Courses
+							</NavLink>
 						</li>
 						<li>
-							<Link to='/blog'>Blog</Link>
+							<NavLink
+								style={({ isActive }) =>
+									isActive ? activeStyle : undefined
+								}
+								className='active:bg-customPrimary'
+								to='/blog'
+							>
+								Blog
+							</NavLink>
 						</li>
 						<li>
-							<Link to='/faq'>FAQ</Link>
+							<NavLink
+								style={({ isActive }) =>
+									isActive ? activeStyle : undefined
+								}
+								className='active:bg-customPrimary'
+								to='/faq'
+							>
+								FAQ
+							</NavLink>
 						</li>
+
 						<li>
-							<Link to='/contact'>Contact Us</Link>
+							<NavLink
+								style={({ isActive }) =>
+									isActive ? activeStyle : undefined
+								}
+								className='active:bg-customPrimary'
+								to='/contact'
+							>
+								Contact Us
+							</NavLink>
 						</li>
 					</ul>
 				</div>
@@ -60,21 +100,55 @@ const TopNavBar = () => {
 				</Link>
 			</div>
 			<div className='navbar-center hidden lg:flex'>
-				<ul className='menu menu-horizontal p-0'>
+				<ul className='menu menu-horizontal p-0 gap-2'>
 					<li>
-						<Link to='/'>Home</Link>
+						<Link className='active:bg-customPrimary' to='/'>
+							Home
+						</Link>
 					</li>
 					<li>
-						<Link to='/courses/all'>Courses</Link>
+						<NavLink
+							style={({ isActive }) =>
+								isActive ? activeStyle : undefined
+							}
+							className='active:bg-customPrimary'
+							to='/courses/all'
+						>
+							Courses
+						</NavLink>
 					</li>
 					<li>
-						<Link to='/blog'>Blog</Link>
+						<NavLink
+							style={({ isActive }) =>
+								isActive ? activeStyle : undefined
+							}
+							className='active:bg-customPrimary'
+							to='/blog'
+						>
+							Blog
+						</NavLink>
 					</li>
 					<li>
-						<Link to='/faq'>FAQ</Link>
+						<NavLink
+							style={({ isActive }) =>
+								isActive ? activeStyle : undefined
+							}
+							className='active:bg-customPrimary'
+							to='/faq'
+						>
+							FAQ
+						</NavLink>
 					</li>
 					<li>
-						<Link to='/contact'>Contact Us</Link>
+						<NavLink
+							style={({ isActive }) =>
+								isActive ? activeStyle : undefined
+							}
+							className='active:bg-customPrimary'
+							to='/contact'
+						>
+							Contact Us
+						</NavLink>
 					</li>
 				</ul>
 			</div>
@@ -105,7 +179,14 @@ const TopNavBar = () => {
 							data-tip={user?.displayName}
 						>
 							<div className='w-10 rounded-full'>
-								<img src={user?.photoURL} alt='' />
+								<img
+									src={
+										user?.photoURL
+											? user?.photoURL
+											: missingUserImg
+									}
+									alt=''
+								/>
 							</div>
 						</label>
 						<ul
@@ -129,7 +210,10 @@ const TopNavBar = () => {
 						</ul>
 					</div>
 				) : (
-					<Link to='login' className='btn'>
+					<Link
+						to='login'
+						className='btn btn-primary bg-customPrimary border-customPrimary hover:bg-transparent hover:text-customPrimary hover:border-customPrimary'
+					>
 						Login
 					</Link>
 				)}

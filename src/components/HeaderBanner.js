@@ -15,10 +15,14 @@ const HeaderBanner = () => {
 				<div className='hero-overlay bg-opacity-60'></div>
 				<div className='hero-content text-center text-neutral-content'>
 					<div className='max-w-md'>
-						<h1 className='mb-5 text-5xl font-bold'>LearnVerse</h1>
-						<p className='mb-5 text-2xl'>Scale Your Ability</p>
+						<h1 className='mb-5 text-4xl font-bold'>
+							We have everything you need
+						</h1>
+						<p className='mb-5 text-xl'>Choose your topic from our vast library to get started
+
+</p>
 						<Link to='courses/all'>
-							<button className='btn btn-primary'>
+							<button className='btn btn-primary bg-customPrimary border-customPrimary hover:bg-transparent hover:text-white hover:border-white'>
 								Get Started
 							</button>
 						</Link>

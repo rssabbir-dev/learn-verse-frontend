@@ -15,10 +15,10 @@ const DisplayCategoryOnHomePage = () => {
 	return (
 		<div className='space-y-10'>
 			<div className='text-center space-y-5'>
-				<h1 className='text-5xl'>We have everything you need to learn anything</h1>
+				<h1 className='text-5xl'>Learn anything</h1>
 				<p className='text-lg'>Choose your topic from our vast library to get started</p>
 			</div>
-			<div className='grid grid-cols-3 gap-10'>
+			<div className='grid md:grid-cols-3 gap-10'>
 				{categories.map((category) => (
 					<Category category={category} key={category.category_id}></Category>
 				))}
@@ -30,9 +30,9 @@ const DisplayCategoryOnHomePage = () => {
 const Category = ({ category }) => {
 	return (
         <Link to={`/courses/${category.category_id}`}>
-            <div className='flex items-center gap-5 shadow-lg p-5 rounded-lg'>
-            <img className='w-20' src={category.category_img} alt="" />
-			<h4 className='text-2xl'>{category.category}</h4>
+            <div className='flex md:flex-col items-center gap-3 lg:gap-5 shadow-md hover:shadow-xl transition-all p-5 rounded-lg h-full'>
+            <img className='w-12 lg:w-20' src={category.category_img} alt="" />
+			<h4 className='text-xl lg:text-2xl'>{category.category}</h4>
 		</div>
         </Link>
 	);

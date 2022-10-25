@@ -2,6 +2,7 @@ import React, { useContext,  useRef, useState } from 'react';
 import { FaRegTimesCircle, FaUserEdit } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../context/AuthProvider/AuthProvider';
+import missingUserImg from '../assets/img/missing-user-img.png';
 
 const Profile = () => {
 	const { user, updateUserProfile } = useContext(AuthContext);
@@ -63,7 +64,7 @@ const Profile = () => {
 					<div className='flex flex-col items-center w-full'>
 						<img
 							className='rounded-full w-32'
-							src={userPhoto}
+							src={userPhoto ? userPhoto : missingUserImg}
 							alt=''
 						/>
 						<h4 className='text-xl'>{userName}</h4>
@@ -79,7 +80,7 @@ const Profile = () => {
 							name='email'
 							required
 							disabled
-							defaultValue={user?.email}
+							defaultValue={user?.email ? user?.email : user.providerData[0].email}
 						/>
 						<label className='label'>
 							<span className='label-text-alt text-gray-500'>
