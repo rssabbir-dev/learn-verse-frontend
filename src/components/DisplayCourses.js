@@ -4,20 +4,13 @@ import CourseCard from './CourseCard';
 
 const DisplayCourses = () => {
 	const [courses, setCourses] = useState([]);
-	// const [categories, setCategories] = useState([]);
 	useEffect(() => {
-		fetch(`${serverURL}/courses`)
+		fetch(`${serverURL}/courses/all`)
 			.then((res) => res.json())
 			.then((data) => setCourses(data))
 			.catch((error) => {
 				console.log(error);
 			});
-		// fetch(`${serverURL}/category`)
-		// 	.then((res) => res.json())
-		// 	.then((data) => setCategories(data))
-		// 	.catch((error) => {
-		// 		console.log(error);
-		// 	});
 	}, []);
 	return (
 		<div>

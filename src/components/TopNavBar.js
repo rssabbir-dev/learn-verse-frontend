@@ -65,7 +65,7 @@ const TopNavBar = () => {
 						<Link to='/'>Home</Link>
 					</li>
 					<li>
-						<Link to='/courses'>Courses</Link>
+						<Link to='/courses/all'>Courses</Link>
 					</li>
 					<li>
 						<Link to='/blog'>Blog</Link>
