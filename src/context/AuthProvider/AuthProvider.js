@@ -29,7 +29,6 @@ const AuthProvider = ({ children }) => {
 	};
 	//Update User Profile
 	const updateUserProfile = (profileData) => {
-		setLoading(true);
 		return updateProfile(auth.currentUser, profileData);
 	};
 	//Send Email Verification code after create User
