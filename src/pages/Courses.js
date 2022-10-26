@@ -15,7 +15,7 @@ const Courses = () => {
                     {courses.map((course) => (
                         <div key={course.id} className='shadow-xl rounded-2xl'>
                             <ResponsiveCourseCard
-							course={course}
+								course={course}
 						/>
                         </div>
 						

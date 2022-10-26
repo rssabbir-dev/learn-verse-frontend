@@ -36,7 +36,7 @@ const Course = () => {
 				</div>
 				<div>
 					<h4 className='text-2xl'>Instructor</h4>
-					<div className='flex items-center gap-3 border p-5 rounded-lg'>
+					<div className='flex items-center gap-3 border border-primary p-5 rounded-lg'>
 						<img
 							className='rounded-full w-12'
 							src={instructor_img ? instructor_img : missingUserImg}
@@ -48,12 +48,12 @@ const Course = () => {
 						</div>
 					</div>
 				</div>
-				<div className='border p-5 rounded-lg'>
+				<div className='border border-primary p-5 rounded-lg'>
 					<ul className='space-y-3'>
 						{topics_cover.map((topic,index) => (
 							<li key={index} className='flex items-start'>
 								<span className='mt-1'>
-									<TiTick className='text-customPrimary text-lg' />
+									<TiTick className='text-primary text-lg' />
 								</span>{' '}
 								<span> {topic}</span>
 							</li>
@@ -73,46 +73,46 @@ const Course = () => {
 				</div>
 				<h1 className='text-4xl md:hidden'>{name}</h1>
 				<div className='divider md:hidden'></div>
-				<div className='border rounded-lg'>
-					<img src={img} alt='' />
-					<div className='grid grid-cols-2 border rounded-lg p-5 gap-5'>
-						<div className='border p-2 rounded-lg'>
+				<div className='border border-primary rounded-lg'>
+					<img className='rounded-t-lg' src={img} alt='' />
+					<div className='grid grid-cols-2 rounded-lg p-5 gap-5'>
+						<div className='border border-primary p-2 rounded-lg'>
 							<p className='font-bold select-none opacity-40'>
 								Enrolled
 							</p>
-							<span className='flex items-center gap-1 text-customPrimary'>
+							<span className='flex items-center gap-1 text-primary'>
 								<MdOutlinePeopleAlt />
 								<span>{enrolled} Student</span>
 							</span>
 						</div>
-						<div className='border p-2 rounded-lg'>
+						<div className='border border-primary p-2 rounded-lg'>
 							<p className='font-bold select-none opacity-40'>
 								Required Hour
 							</p>
-							<span className='flex items-center gap-1 text-customPrimary'>
+							<span className='flex items-center gap-1 text-primary'>
 								<MdOutlineHourglassTop />
 								<span>{hour_require} Hour</span>
 							</span>
 						</div>
-						<div className='border p-2 rounded-lg'>
+						<div className='border border-primary p-2 rounded-lg'>
 							<p className='font-bold select-none opacity-40'>
 								Total Video
 							</p>
-							<span className='flex items-center gap-1 text-customPrimary'>
+							<span className='flex items-center gap-1 text-primary'>
 								<MdOndemandVideo />
 								<span>{total_video}</span>
 							</span>
 						</div>
-						<div className='border p-2 rounded-lg'>
+						<div className='border border-primary p-2 rounded-lg'>
 							<p className='font-bold select-none opacity-40'>
 								Total Quiz
 							</p>
-							<span className='flex items-center gap-1 text-customPrimary'>
+							<span className='flex items-center gap-1 text-primary'>
 								<MdOutlineQuiz />
 								<span>{total_quiz}</span>
 							</span>
 						</div>
-						<button className='btn btn-block col-span-2 bg-customPrimary border-customPrimary hover:bg-transparent hover:text-customPrimary hover:border-customPrimary'>
+						<button className='btn btn-primary btn-block col-span-2'>
 							Get premium access
 						</button>
 					</div>

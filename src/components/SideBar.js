@@ -39,7 +39,7 @@ const SideBar = () => {
 						))}
 					</div>
 				</div>
-				{user?.uid && (
+				{!user?.uid && (
 					<div>
 						<Link to='/login'>
 							<button className='btn btn-block btn-primary'>

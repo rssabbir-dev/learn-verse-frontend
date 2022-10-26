@@ -37,7 +37,7 @@ const MultiViewCourseCarousel = () => {
 			>
 				{courses.map((course) => (
 					<SwiperSlide key={course.id} className=''>
-                        <ResponsiveCourseCard course={course}/>
+                        <ResponsiveCourseCard course={course} rounded='rounded-none'/>
 					</SwiperSlide>
 				))}
 			</Swiper>

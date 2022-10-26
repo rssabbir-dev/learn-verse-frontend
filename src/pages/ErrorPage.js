@@ -10,7 +10,7 @@ const ErrorPage = () => {
 						{' '}
 						404
 					</div>
-					<p className='text-2xl md:text-3xl font-light leading-normal mb-8'>
+					<p data-theme='dark' className='bg-transparent text-2xl md:text-3xl font-light leading-normal mb-8'>
 						Sorry we couldn't find the page you're looking for
 					</p>
 

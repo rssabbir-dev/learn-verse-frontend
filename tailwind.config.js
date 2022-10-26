@@ -15,7 +15,15 @@ module.exports = {
 					'primary-focus': '#529820',
 				},
 			},
-			'dark',
+			{
+				dark: {
+					...require('daisyui/src/colors/themes')[
+						'[data-theme=dark]'
+					],
+					primary: '#1FB2A6',
+					'primary-focus': '#198F85',
+				},
+			},
 		],
 	},
 	plugins: [require('daisyui')],

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ResponsiveCourseCard = ({ course }) => {
-    const { name, img,id } = course;
+const ResponsiveCourseCard = ({ course,rounded }) => {
+	const { name, img, id, course_details,category } = course;
+	console.log(course);
     return (
-		<div className='card md:card-side bg-base-100'>
+		<div className={`card md:card-side bg-base-100 ${rounded}`}>
 			<figure className=''>
 				<img
 					className='lg:w-96 md:w-72 h-full object-cover'
@@ -13,11 +14,12 @@ const ResponsiveCourseCard = ({ course }) => {
 				/>
 			</figure>
 			<div className='card-body'>
+				<div className='badge badge-outline'>{category}</div>
 				<h2 className='card-title'>{name}</h2>
-				<p>Click the button to listen on Spotiwhy app.</p>
-				<div className='card-actions justify-end'>
+				<p>{course_details.sort_description.slice(0, 100)}...</p>
+				<div className='md:card-actions md:justify-end'>
 					<Link to={`/course/${id}`}>
-						<button className='btn btn-primary'>
+						<button className='btn btn-primary btn-block'>
 							View Details
 						</button>
 					</Link>
