@@ -4,8 +4,10 @@ import { AuthContext } from '../context/AuthProvider/AuthProvider';
 import missingUserImg from '../assets/img/missing-user-img.png';
 import { TbSun } from 'react-icons/tb';
 import { MdOutlineDarkMode } from 'react-icons/md';
+import { BiLogIn } from 'react-icons/bi';
 import { useEffect } from 'react';
 import { themeChange } from 'theme-change';
+import logo from '../assets/img/logo-icon.png'
 
 const TopNavBar = () => {
 	// website theme change observer
@@ -103,8 +105,9 @@ const TopNavBar = () => {
 						</li>
 					</ul>
 				</div>
-				<Link to='/' className='btn btn-ghost normal-case text-xl'>
-					LearnVerse
+				<Link to='/' className='btn btn-ghost normal-case text-xl flex items-center gap-1'>
+					<img className='w-11' src={logo} alt='' />
+					<span>LearnVerse</span>
 				</Link>
 			</div>
 			<div className='navbar-center hidden lg:flex'>
@@ -164,18 +167,18 @@ const TopNavBar = () => {
 				<button
 					data-set-theme='dark'
 					data-act-class='hidden'
-					className='flex items-center gap-1 btn-xs btn'
+					className='flex items-center gap-1 btn-sm btn'
 				>
-					Dark
-					<MdOutlineDarkMode className='text-sm' />
+					<span className='hidden sm:block'>Dark</span>
+					<MdOutlineDarkMode className='text-lg' />
 				</button>
 				<button
 					data-set-theme='light'
 					data-act-class='hidden'
-					className='flex items-center gap-1 btn-xs btn'
+					className='flex items-center gap-1 btn-sm btn'
 				>
-					Light
-					<TbSun className='text-sm' />
+					<span className='hidden sm:block'>Light</span>
+					<TbSun className='text-lg' />
 				</button>
 				{user?.uid ? (
 					<div className='dropdown dropdown-end'>
@@ -217,7 +220,8 @@ const TopNavBar = () => {
 					</div>
 				) : (
 					<Link to='login' className='btn btn-primary'>
-						Login
+						<span className='hidden sm:block'>Login</span>
+						<BiLogIn className='text-xl' />
 					</Link>
 				)}
 			</div>
