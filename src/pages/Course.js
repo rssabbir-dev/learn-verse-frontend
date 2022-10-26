@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import missingUserImg from '../assets/img/missing-user-img.png';
 import { TiTick } from 'react-icons/ti';
 
@@ -13,9 +13,8 @@ import ReactToPDF from '@kunwarji/react-to-pdf';
 import { FaDownload } from 'react-icons/fa';
 const Course = () => {
 	const course = useLoaderData();
-    console.log(course);
     const refVar = useRef();
-	const { name, img, course_details, topics_cover, instructor_info } = course;
+	const { id,name, img, course_details, topics_cover, instructor_info } = course;
 	const { instructor_name, instructor_img, graduate_from } = instructor_info;
 	const {
 		enrolled,
@@ -39,7 +38,9 @@ const Course = () => {
 					<div className='flex items-center gap-3 border border-primary p-5 rounded-lg'>
 						<img
 							className='rounded-full w-12'
-							src={instructor_img ? instructor_img : missingUserImg}
+							src={
+								instructor_img ? instructor_img : missingUserImg
+							}
 							alt=''
 						/>
 						<div>
@@ -50,7 +51,7 @@ const Course = () => {
 				</div>
 				<div className='border border-primary p-5 rounded-lg'>
 					<ul className='space-y-3'>
-						{topics_cover.map((topic,index) => (
+						{topics_cover.map((topic, index) => (
 							<li key={index} className='flex items-start'>
 								<span className='mt-1'>
 									<TiTick className='text-primary text-lg' />
@@ -65,8 +66,12 @@ const Course = () => {
 				<div className='text-right'>
 					<ReactToPDF element={refVar}>
 						{(toPdf) => (
-							<button className='btn btn-sm btn-warning gap-2' type='button' onClick={toPdf}>
-								Download PDF <FaDownload/>
+							<button
+								className='btn btn-sm btn-warning gap-2'
+								type='button'
+								onClick={toPdf}
+							>
+								Download PDF <FaDownload />
 							</button>
 						)}
 					</ReactToPDF>
@@ -112,9 +117,13 @@ const Course = () => {
 								<span>{total_quiz}</span>
 							</span>
 						</div>
-						<button className='btn btn-primary btn-block col-span-2'>
-							Get premium access
-						</button>
+						<div className='col-span-2'>
+							<Link to={`/checkout/${id}`}>
+								<button className='btn btn-primary btn-block'>
+									Get premium access
+								</button>
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>

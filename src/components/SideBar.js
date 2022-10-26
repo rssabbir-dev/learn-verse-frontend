@@ -40,7 +40,7 @@ const SideBar = () => {
 					</div>
 				</div>
 				{!user?.uid && (
-					<div>
+					<div className='hidden xl:block'>
 						<Link to='/login'>
 							<button className='btn btn-block btn-primary'>
 								Login
@@ -59,7 +59,7 @@ const Category = ({ category }) => {
 	return (
 		<Link to={`/courses/${category.category_id}`}>
 			<div
-				className='flex md:flex-col md:text-center lg:flex-row lg:text-left items-center gap-5 rounded-lg shadow-lg p-5'
+				className='flex flex-col md:text-center lg:flex-row lg:text-left items-center md:gap-5 gap-3 rounded-lg shadow-lg md:p-5 p-3'
 				data-theme='light'
 			>
 				<img className='w-10' src={category.category_img} alt='' />

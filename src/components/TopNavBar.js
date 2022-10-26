@@ -162,18 +162,18 @@ const TopNavBar = () => {
 				<button
 					data-set-theme='dark'
 					data-act-class='hidden'
-					className='flex items-center gap-1 btn-sm btn'
+					className='flex items-center gap-1 btn-xs btn'
 				>
 					Dark
-					<MdOutlineDarkMode />
+					<MdOutlineDarkMode className='text-sm' />
 				</button>
 				<button
 					data-set-theme='light'
 					data-act-class='hidden'
-					className='flex items-center gap-1 btn-sm btn'
+					className='flex items-center gap-1 btn-xs btn'
 				>
 					Light
-					<TbSun />
+					<TbSun className='text-sm' />
 				</button>
 				{user?.uid ? (
 					<div className='dropdown dropdown-end'>

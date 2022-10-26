@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+import Checkout from '../pages/Checkout';
 import Course from '../pages/Course';
 import Courses from '../pages/Courses';
 import ErrorPage from '../pages/ErrorPage';
@@ -28,18 +29,29 @@ export const routes = createBrowserRouter([
 				),
 			},
 			{
+				path: '/checkout/:id',
+				element: (
+					<PrivateRoute>
+						<Checkout />
+					</PrivateRoute>
+				),
+				loader: ({ params }) => {
+					return fetch(`${serverURL}/course/${params.id}`);
+				},
+			},
+			{
 				path: '/courses/:id',
 				element: <Courses />,
-				loader: ({params}) => {
-					return fetch(`${serverURL}/courses/${params.id}`)
-				}
+				loader: ({ params }) => {
+					return fetch(`${serverURL}/courses/${params.id}`);
+				},
 			},
 			{
 				path: '/course/:id',
 				element: <Course />,
 				loader: ({ params }) => {
-					return fetch(`${serverURL}/course/${params.id}`)
-				}
+					return fetch(`${serverURL}/course/${params.id}`);
+				},
 			},
 			{
 				path: '/registration',
@@ -51,8 +63,8 @@ export const routes = createBrowserRouter([
 			},
 			{
 				path: '*',
-				element:<ErrorPage/>
-			}
+				element: <ErrorPage />,
+			},
 		],
 	},
 ]);

@@ -9,9 +9,9 @@ const CourseCard = ({ course }) => {
 				<img src={img} alt='Shoes' />
 			</figure>
 			<div className='card-body'>
+				<div className='badge badge-outline'>{category}</div>
 				<h2 className='card-title'>{name}</h2>
 				<p>{course_details.sort_description.slice(0, 100)}...</p>
-				<div className='badge badge-outline'>{category}</div>
 				<div className='card-actions justify-end items-center'>
 					<p className='text-xl text-primary'>
 						<span className='text-2xl'>৳ </span>
