@@ -30,6 +30,7 @@ const HeaderBanner = () => {
 				</div>
 			</div>
 			<div>
+				{/* Display Course Carousel */}
 				<MultiViewCourseCarousel />
 			</div>
 		</div>

@@ -14,7 +14,8 @@ import { FaDownload } from 'react-icons/fa';
 import SameCourseOnACategory from '../components/SameCourseOnACategory';
 const Course = () => {
 	const course = useLoaderData();
-	const refVar = useRef();
+	//pdf Download ref
+	const pdfDownloadRef = useRef();
 	const {
 		id,
 		name,
@@ -35,7 +36,7 @@ const Course = () => {
 	return (
 		<>
 			<div className='flex flex-col-reverse md:grid md:grid-cols-5 gap-10'>
-				<div className='col-span-3 space-y-5' ref={refVar}>
+				<div className='col-span-3 space-y-5' ref={pdfDownloadRef}>
 					<div>
 						<h1 className='text-4xl hidden md:block'>{name}</h1>
 						<div className='hidden md:block'>
@@ -76,7 +77,8 @@ const Course = () => {
 				</div>
 				<div className='col-span-2 space-y-5 '>
 					<div className='text-right'>
-						<ReactToPDF element={refVar}>
+						{/* //React To PDF Download */}
+						<ReactToPDF element={pdfDownloadRef}>
 							{(toPdf) => (
 								<button
 									className='btn btn-sm btn-warning gap-2'
@@ -87,6 +89,7 @@ const Course = () => {
 								</button>
 							)}
 						</ReactToPDF>
+						{/* //React To PDF Download */}
 					</div>
 					<h1 className='text-4xl md:hidden'>{name}</h1>
 					<div className='divider md:hidden'></div>

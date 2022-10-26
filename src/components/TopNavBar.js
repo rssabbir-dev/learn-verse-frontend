@@ -8,11 +8,13 @@ import { useEffect } from 'react';
 import { themeChange } from 'theme-change';
 
 const TopNavBar = () => {
+	// website theme change observer
 	useEffect(() => {
 		themeChange(false);
 		// 👆 false parameter is required for react project
 	}, []);
 	const { user, logOut } = useContext(AuthContext);
+	//Handle User log out
 	const handleLogOut = () => {
 		logOut()
 			.then(() => {

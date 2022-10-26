@@ -12,6 +12,7 @@ const Checkout = () => {
 	};
 	return (
 		<div className='md:grid grid-cols-2 gap-20'>
+			{/* Payment Gateway Modal Start Here */}
 			<input type='checkbox' id='my-modal-3' className='modal-toggle' />
 			<div className='modal'>
 				<div className='modal-box relative'>
@@ -88,6 +89,7 @@ const Checkout = () => {
 					</div>
 				</div>
 			</div>
+			{/* Payment Gateway Modal End Here */}
 			<h1 className='col-span-2 text-xl mb-4'>Checkout Page</h1>
 			<div>
 				<div className='card card-side bg-base-100 border border-primary'>

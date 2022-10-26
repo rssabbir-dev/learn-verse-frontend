@@ -12,6 +12,7 @@ import Registration from '../pages/Registration';
 import Success from '../pages/Success';
 import PrivateRoute from './PrivateRoute';
 
+//Server Site URL link for loading data
 export const serverURL = 'https://learn-varse-backend.vercel.app';
 export const routes = createBrowserRouter([
 	{

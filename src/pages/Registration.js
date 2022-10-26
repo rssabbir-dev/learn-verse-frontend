@@ -40,6 +40,8 @@ const Registration = () => {
 				toast.error(error.message);
 			});
 	};
+
+	//Handle User Profile Name, and Photo Update
 	const handleUpdateUserProfile = (name, photo) => {
 		const profileData = { displayName: name, photoURL: photo };
 		updateUserProfile(profileData)

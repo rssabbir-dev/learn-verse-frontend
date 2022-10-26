@@ -7,9 +7,11 @@ import { AuthContext } from '../context/AuthProvider/AuthProvider';
 
 const ProviderLogin = () => {
 	const { signInWithProvider, setLoading } = useContext(AuthContext);
+	//get previous page url
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location?.state?.from.pathname || '/';
+	//Handle Google Provider Login
 	const handleGoogleLogin = () => {
 		const provider = new GoogleAuthProvider();
 		signInWithProvider(provider)
@@ -21,9 +23,12 @@ const ProviderLogin = () => {
 				toast.error(error.message);
 			})
 			.finally(() => {
+				//set Loading False
 				setLoading(false);
 			});
 	};
+
+	//Handle Github Provider Login
     const handleGitHubLogin = () => {
         const provider = new GithubAuthProvider();
 		signInWithProvider(provider)
@@ -31,12 +36,14 @@ const ProviderLogin = () => {
                 const user = res.user;
                 console.log(user);
 				toast.success('Login Success');
+				//navigate user previous page where they are first visit
 				navigate(from, { replace: true });
 			})
 			.catch((error) => {
 				toast.error(error.message);
 			})
 			.finally(() => {
+				//Set Loading False
 				setLoading(false);
 			});
     };

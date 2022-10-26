@@ -5,6 +5,7 @@ import { AuthContext } from '../context/AuthProvider/AuthProvider';
 const PrivateRoute = ({ children }) => {
     const location = useLocation();
     const { user, loading } = useContext(AuthContext);
+    //show loading when data is not ready
     if (loading) {
         return <h3 className='text-3xl'>Loading....</h3>
     }

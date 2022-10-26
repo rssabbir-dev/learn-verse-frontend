@@ -21,6 +21,7 @@ const Profile = () => {
 
 	const handleUpdateUserProfile = (name, photoURL) => {
 		const profileData = { displayName: name, photoURL: photoURL };
+		//Handle user profile update
 		updateUserProfile(profileData)
 			.then(() => {
 				toast.success('Profile Updated');

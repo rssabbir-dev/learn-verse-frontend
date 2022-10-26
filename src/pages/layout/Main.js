@@ -4,6 +4,7 @@ import Footer from '../../components/Footer';
 import TopNavBar from '../../components/TopNavBar';
 
 const Main = () => {
+	//Scroll TO top of the page when route got changed
 	const useScrollToTop = () => {
 		const { pathname } = useLocation();
 

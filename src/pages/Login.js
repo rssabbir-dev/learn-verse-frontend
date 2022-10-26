@@ -16,6 +16,7 @@ const Login = () => {
 		const password = form.password.value;
 		handleLoginUser(email, password);
 	};
+	// Handle User Email Password Login
 	const handleLoginUser = (email, password) => {
 		loginUser(email, password)
 			.then((res) => {
