@@ -4,6 +4,7 @@ import Checkout from '../pages/Checkout';
 import Course from '../pages/Course';
 import Courses from '../pages/Courses';
 import ErrorPage from '../pages/ErrorPage';
+import Faq from '../pages/Faq';
 import Home from '../pages/Home';
 import Main from '../pages/layout/Main';
 import Login from '../pages/Login';
@@ -67,8 +68,15 @@ export const routes = createBrowserRouter([
 				path: '/blog',
 				element: <Blogs />,
 				loader: () => {
-					return fetch(`${serverURL}/blogs`)
-				}
+					return fetch(`${serverURL}/blogs`);
+				},
+			},
+			{
+				path: '/faq',
+				element: <Faq />,
+				loader: () => {
+					return fetch(`${serverURL}/faq`);
+				},
 			},
 			{
 				path: '/registration',
