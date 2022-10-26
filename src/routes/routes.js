@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Blogs from '../pages/Blogs';
 import Checkout from '../pages/Checkout';
+import Contact from '../pages/Contact';
 import Course from '../pages/Course';
 import Courses from '../pages/Courses';
 import ErrorPage from '../pages/ErrorPage';
@@ -77,6 +78,10 @@ export const routes = createBrowserRouter([
 				loader: () => {
 					return fetch(`${serverURL}/faq`);
 				},
+			},
+			{
+				path: '/contact',
+				element: <Contact/>
 			},
 			{
 				path: '/registration',

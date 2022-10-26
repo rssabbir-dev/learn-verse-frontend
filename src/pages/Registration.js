@@ -102,7 +102,7 @@ const Registration = () => {
 								<span className='label-text'>Password</span>
 							</label>
 							<input
-								type='text'
+								type='password'
 								placeholder='Set Password'
 								className='input input-bordered'
 								name='password'
