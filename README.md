@@ -26,3 +26,5 @@ LearnVerse is a edTech platform in Bangladesh, we provide huge of learning mater
 - theme-change
 - swiperjs
 - react-hot-toast
+- react-inner-image-zoom
+- react-loader-spinner

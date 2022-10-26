@@ -2,6 +2,9 @@ import React, { useRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import missingUserImg from '../assets/img/missing-user-img.png';
 import { TiTick } from 'react-icons/ti';
+import InnerImageZoom from 'react-inner-image-zoom';
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
+
 
 import {
 	MdOndemandVideo,
@@ -94,7 +97,12 @@ const Course = () => {
 					<h1 className='text-4xl md:hidden'>{name}</h1>
 					<div className='divider md:hidden'></div>
 					<div className='border border-primary rounded-lg'>
-						<img className='rounded-t-lg' src={img} alt='' />
+						{/* //Zoom Img When Click */}
+						<InnerImageZoom
+							src={img}
+							zoomSrc={img}
+							className="rounded-t-lg"
+						/>
 						<div className='grid grid-cols-2 rounded-lg p-5 gap-5'>
 							<div className='border border-primary p-2 rounded-lg'>
 								<p className='font-bold select-none opacity-40'>
