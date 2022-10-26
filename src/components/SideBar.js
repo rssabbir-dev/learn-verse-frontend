@@ -39,6 +39,25 @@ const SideBar = () => {
 						))}
 					</div>
 				</div>
+				<div>
+					<h4 className='text-2xl text-center divider'>
+						Useful Link
+					</h4>
+					<ul className='grid gap-5'>
+						<Link to='/profile'>
+							<li className='rounded-md shadow-lg md:p-5 p-3'>Profile</li>
+						</Link>
+						<Link to='/blog'>
+							<li className='rounded-md shadow-lg md:p-5 p-3'>Blog</li>
+						</Link>
+						<Link to='/faq'>
+							<li className='rounded-md shadow-lg md:p-5 p-3'>FAQ</li>
+						</Link>
+						<Link to='/contact'>
+							<li className='rounded-md shadow-lg md:p-5 p-3'>Contact Us</li>
+						</Link>
+					</ul>
+				</div>
 				{!user?.uid && (
 					<div className='hidden xl:block'>
 						<Link to='/login'>

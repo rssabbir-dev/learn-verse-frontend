@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const ResponsiveCourseCard = ({ course,rounded }) => {
 	const { name, img, id, course_details,category } = course;
-	console.log(course);
     return (
 		<div className={`card md:card-side bg-base-100 ${rounded}`}>
 			<figure className=''>
