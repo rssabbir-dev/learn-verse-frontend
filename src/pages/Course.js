@@ -15,7 +15,8 @@ const Course = () => {
 	const course = useLoaderData();
     console.log(course);
     const refVar = useRef();
-	const { name, img, course_details, topics_cover, instructor } = course;
+	const { name, img, course_details, topics_cover, instructor_info } = course;
+	const { instructor_name, instructor_img, graduate_from } = instructor_info;
 	const {
 		enrolled,
 		hour_require,
@@ -38,12 +39,12 @@ const Course = () => {
 					<div className='flex items-center gap-3 border p-5 rounded-lg'>
 						<img
 							className='rounded-full w-12'
-							src={missingUserImg}
+							src={instructor_img ? instructor_img : missingUserImg}
 							alt=''
 						/>
 						<div>
-							<p className='text-lg'>{instructor}</p>
-							<p>Graduate From Dhaka University</p>
+							<p className='text-lg'>{instructor_name}</p>
+							<p>Graduate From {graduate_from}</p>
 						</div>
 					</div>
 				</div>

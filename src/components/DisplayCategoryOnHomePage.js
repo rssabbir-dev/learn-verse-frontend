@@ -30,7 +30,7 @@ const DisplayCategoryOnHomePage = () => {
 const Category = ({ category }) => {
 	return (
         <Link to={`/courses/${category.category_id}`}>
-            <div className='flex md:flex-col items-center gap-3 lg:gap-5 shadow-md hover:shadow-xl transition-all p-5 rounded-lg h-full'>
+            <div className='flex md:flex-col items-center gap-3 lg:gap-5 shadow-md hover:shadow-xl transition-all p-5 rounded-lg h-full' data-theme='light'>
             <img className='w-12 lg:w-20' src={category.category_img} alt="" />
 			<h4 className='text-xl lg:text-2xl'>{category.category}</h4>
 		</div>

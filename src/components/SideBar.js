@@ -5,7 +5,7 @@ import { serverURL } from '../routes/routes';
 import ProviderLogin from './ProviderLogin';
 
 const SideBar = () => {
-    const {user} = useContext(AuthContext)
+	const { user } = useContext(AuthContext);
 	const [categories, setCategories] = useState([]);
 	useEffect(() => {
 		fetch(`${serverURL}/category`)
@@ -14,7 +14,7 @@ const SideBar = () => {
 			.catch((error) => {
 				console.log(error);
 			});
-    }, []);
+	}, []);
 	return (
 		<div>
 			<div className='space-y-5'>
@@ -39,15 +39,17 @@ const SideBar = () => {
 						))}
 					</div>
 				</div>
-				<div>
-					<Link to='/login'>
-						<button className='btn btn-block btn-primary'>
-							Login
-						</button>
-					</Link>
-					<h3 className='divider'>OR</h3>
-					{!user?.uid && <ProviderLogin />}
-				</div>
+				{user?.uid && (
+					<div>
+						<Link to='/login'>
+							<button className='btn btn-block btn-primary'>
+								Login
+							</button>
+						</Link>
+						<h3 className='divider'>OR</h3>
+						<ProviderLogin />
+					</div>
+				)}
 			</div>
 		</div>
 	);
@@ -56,7 +58,10 @@ const SideBar = () => {
 const Category = ({ category }) => {
 	return (
 		<Link to={`/courses/${category.category_id}`}>
-			<div className='flex md:flex-col md:text-center lg:flex-row lg:text-left items-center gap-5 rounded-lg shadow-lg p-5'>
+			<div
+				className='flex md:flex-col md:text-center lg:flex-row lg:text-left items-center gap-5 rounded-lg shadow-lg p-5'
+				data-theme='light'
+			>
 				<img className='w-10' src={category.category_img} alt='' />
 				<h1>{category.category}</h1>
 			</div>

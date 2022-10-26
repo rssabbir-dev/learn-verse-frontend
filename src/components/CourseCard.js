@@ -12,12 +12,12 @@ const CourseCard = ({ course }) => {
 				<h2 className='card-title'>{name}</h2>
 				<p>If a dog chews shoes whose shoes does he choose?</p>
 				<div className='card-actions justify-end items-center'>
-					<p className='text-xl text-customPrimary'>
+					<p className='text-xl text-primary'>
 						<span className='text-2xl'>৳ </span>
 						{price}
 					</p>
 					<Link to={`/course/${id}`}>
-						<button className='btn btn-ghost text-customPrimary'>
+						<button className='btn btn-ghost text-primary'>
 							View Details
 						</button>
 					</Link>
