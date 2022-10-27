@@ -5,7 +5,7 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider/AuthProvider';
 
-const ProviderLogin = () => {
+const ProviderLogin = ({sidebarStyle}) => {
 	const { signInWithProvider, setLoading } = useContext(AuthContext);
 	//get previous page url
 	const navigate = useNavigate();
@@ -52,11 +52,11 @@ const ProviderLogin = () => {
 				className='btn btn-block btn-outline btn-primary gap-3'
 			>
 				<FaGoogle className='text-2xl' />
-				Continue With Google
+				<span className={`${sidebarStyle}`}>Continue With Google</span>
 			</button>
 			<button onClick={handleGitHubLogin} className='btn btn-block gap-3'>
 				<FaGithub className='text-2xl' />
-				Continue With GitHub
+				<span className={`${sidebarStyle}`}>Continue With GitHub</span>
 			</button>
 		</div>
 	);

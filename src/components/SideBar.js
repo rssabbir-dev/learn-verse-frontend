@@ -67,14 +67,14 @@ const SideBar = () => {
 					</ul>
 				</div>
 				{!user?.uid && (
-					<div className='hidden xl:block'>
+					<div className=''>
 						<Link to='/login'>
 							<button className='btn btn-block btn-primary'>
 								Login
 							</button>
 						</Link>
 						<h3 className='divider'>OR</h3>
-						<ProviderLogin />
+						<ProviderLogin sidebarStyle='md:hidden xl:block' />
 					</div>
 				)}
 			</div>

@@ -8,7 +8,7 @@ const Courses = () => {
     const paramsId = useParams();
     return (
         
-        <div className='flex flex-col-reverse md:grid md:grid-cols-4 gap-10'>
+        <div className='flex flex-col md:grid md:grid-cols-4 gap-10'>
 			<div className='col-span-3'>
                 <h1 className='text-3xl my-3'>{courses.length} Course are available in {paramsId.id === 'all' ? 'All Courses' : courses[0]?.category}</h1>
 				<div className='grid gap-10'>
