@@ -2,9 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CourseCard = ({ course }) => {
-    const { id, name, price, category, img,course_details } = course;
-    return (
-		<div className='card card-compact w-full sm:w-96 md:w-80 lg:w-72 bg-base-100 shadow-lg hover:shadow-xl transition-all h-full'>
+	const { id, name, price, category, img, course_details } = course;
+	return (
+		<Link
+			to={`/course/${id}`}
+			className='card card-compact w-full sm:w-96 md:w-80 lg:w-72 bg-base-100 shadow-lg hover:shadow-xl transition-all h-full hover:-translate-y-1'
+		>
 			<figure>
 				<img src={img} alt='Shoes' />
 			</figure>
@@ -17,14 +20,12 @@ const CourseCard = ({ course }) => {
 						<span className='text-2xl'>৳ </span>
 						{price}
 					</p>
-					<Link to={`/course/${id}`}>
-						<button className='btn btn-ghost text-primary'>
-							View Details
-						</button>
-					</Link>
+					<button className='btn btn-ghost text-primary'>
+						View Details
+					</button>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 };
 

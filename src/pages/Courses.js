@@ -13,7 +13,7 @@ const Courses = () => {
                 <h1 className='text-3xl my-3'>{courses.length} Course are available in {paramsId.id === 'all' ? 'All Courses' : courses[0]?.category}</h1>
 				<div className='grid gap-10'>
                     {courses.map((course) => (
-                        <div key={course.id} className='shadow-xl rounded-2xl'>
+                        <div key={course.id} className='shadow-md hover:shadow-xl transition-all rounded-2xl'>
                             <ResponsiveCourseCard
 								course={course}
 						/>

@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SameCourseCard = ({ course }) => {
-	const { img, name, id } = course;
+	const { img, name, id, instructor_info } = course;
+	const { instructor_img, instructor_name } = instructor_info;
 	return (
 		<Link
 			to={`/course/${id}`}
@@ -11,8 +12,24 @@ const SameCourseCard = ({ course }) => {
 			<figure>
 				<img src={img} alt='Shoes' />
 			</figure>
-			<div className='card-body'>
+			<div className='card-body justify-between'>
 				<h2 className='card-title'>{name}</h2>
+				<div className='flex items-center gap-4'>
+					<div
+						className='w-7 rounded-full ring
+                             ring-primary ring-offset-base-100 ring-offset-2'
+					>
+						<img
+							className='rounded-full border border-primary'
+							src={instructor_img}
+							alt=''
+						/>
+					</div>
+					<div>
+						<p className='text-xs'>Instructor</p>
+						<p className='text-sm'>{instructor_name}</p>
+					</div>
+				</div>
 			</div>
 		</Link>
 	);

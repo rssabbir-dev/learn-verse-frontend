@@ -101,7 +101,7 @@ const Course = () => {
 						<InnerImageZoom
 							src={img}
 							zoomSrc={img}
-							className="rounded-t-lg"
+							className='rounded-t-lg'
 						/>
 						<div className='grid grid-cols-2 rounded-lg p-5 gap-5'>
 							<div className='border border-primary p-2 rounded-lg'>
@@ -152,7 +152,7 @@ const Course = () => {
 				</div>
 			</div>
 			<div className='col-span-5'>
-				<h1 className='text-3xl'>Smeller Course</h1>
+				<h1 className='text-2xl'>Recommended courses for you</h1>
 				<div className='divider'></div>
 				<SameCourseOnACategory courseID={id} categoryID={category_id} />
 			</div>
