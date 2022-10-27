@@ -4,6 +4,7 @@ import Checkout from '../pages/Checkout';
 import Contact from '../pages/Contact';
 import Course from '../pages/Course';
 import Courses from '../pages/Courses';
+import ElementError from '../pages/ElementError';
 import ErrorPage from '../pages/ErrorPage';
 import Faq from '../pages/Faq';
 import Home from '../pages/Home';
@@ -24,6 +25,7 @@ export const routes = createBrowserRouter([
 			{
 				path: '/',
 				element: <Home />,
+				errorElement: <ElementError />,
 			},
 			{
 				path: '/profile',
@@ -32,6 +34,7 @@ export const routes = createBrowserRouter([
 						<Profile />
 					</PrivateRoute>
 				),
+				errorElement: <ElementError />,
 			},
 			{
 				path: '/checkout/:id',
@@ -43,6 +46,7 @@ export const routes = createBrowserRouter([
 				loader: ({ params }) => {
 					return fetch(`${serverURL}/course/${params.id}`);
 				},
+				errorElement: <ElementError />,
 			},
 			{
 				path: '/success/:id',
@@ -50,6 +54,7 @@ export const routes = createBrowserRouter([
 				loader: ({ params }) => {
 					return fetch(`${serverURL}/course/${params.id}`);
 				},
+				errorElement: <ElementError />,
 			},
 			{
 				path: '/courses/:id',
@@ -57,6 +62,7 @@ export const routes = createBrowserRouter([
 				loader: ({ params }) => {
 					return fetch(`${serverURL}/courses/${params.id}`);
 				},
+				errorElement: <ElementError />,
 			},
 			{
 				path: '/course/:id',
@@ -64,6 +70,7 @@ export const routes = createBrowserRouter([
 				loader: ({ params }) => {
 					return fetch(`${serverURL}/course/${params.id}`);
 				},
+				errorElement: <ElementError />,
 			},
 			{
 				path: '/blog',
@@ -71,6 +78,7 @@ export const routes = createBrowserRouter([
 				loader: () => {
 					return fetch(`${serverURL}/blogs`);
 				},
+				errorElement: <ElementError />,
 			},
 			{
 				path: '/faq',
@@ -78,18 +86,22 @@ export const routes = createBrowserRouter([
 				loader: () => {
 					return fetch(`${serverURL}/faq`);
 				},
+				errorElement: <ElementError />,
 			},
 			{
 				path: '/contact',
-				element: <Contact/>
+				element: <Contact />,
+				errorElement: <ElementError />,
 			},
 			{
 				path: '/registration',
 				element: <Registration />,
+				errorElement: <ElementError />,
 			},
 			{
 				path: '/login',
 				element: <Login />,
+				errorElement: <ElementError />,
 			},
 			{
 				path: '*',
