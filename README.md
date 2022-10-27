@@ -1,7 +1,7 @@
 # LearnVerse - A Learning Platform For Everyone
 
 ## Live Website https://learn-verse-36a60.web.app/
-## Server or API Link https://learn-verse-36a60.web.app/
+## Server or API Link https://learn-varse-backend.vercel.app/
 
 LearnVerse is a edTech platform in Bangladesh, we provide huge of learning material to our enrolled student for achieved there goal.
 
@@ -35,22 +35,22 @@ LearnVerse is a edTech platform in Bangladesh, we provide huge of learning mater
 ### API Data used in this site
 # LearnVerse Server OR API
 
-## Get All Course Data with this api link
+### Get All Course Data with this api link
 - https://learn-varse-backend.vercel.app/courses/all
 
-## Get All Category Data with this api link
+### Get All Category Data with this api link
 - https://learn-varse-backend.vercel.app/category
 
-## Get All Course Based on Category ID
+### Get All Course Based on Category ID
 - https://learn-varse-backend.vercel.app/courses/:id
 - Example: https://learn-varse-backend.vercel.app/courses/c1
 
-## Get A Single Course By Course ID
+### Get A Single Course By Course ID
 - https://learn-varse-backend.vercel.app/course/:id
 - Example: https://learn-varse-backend.vercel.app/course/s1
 
-## Get All Blogs Post Data with this api link
+### Get All Blogs Post Data with this api link
 - https://learn-varse-backend.vercel.app/blogs
 
-## Get All FAQ Data with this api link
+### Get All FAQ Data with this api link
 - https://learn-varse-backend.vercel.app/faq
