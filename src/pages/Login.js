@@ -15,7 +15,10 @@ const Login = () => {
 		const email = form.email.value;
 		const password = form.password.value;
 		if (password.length < 6) {
-			return toast.error('Password at least have 6 character')
+			toast.error('Password at least have 6 character')
+			form.password.value = '';
+			return;
+
 		}
 		handleLoginUser(email, password);
 	};

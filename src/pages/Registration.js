@@ -17,8 +17,8 @@ const Registration = () => {
 		const password = form.password.value;
 		if (password.length < 6) {
 			toast.error('Password at least have 6 character');
-			password.value = '';
-			return; 
+			form.password.value = '';
+			return;
 		}
 		handleCreateUser(email, password, name, photoURL, form);
 	};
