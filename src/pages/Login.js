@@ -14,6 +14,9 @@ const Login = () => {
 		const form = event.target;
 		const email = form.email.value;
 		const password = form.password.value;
+		if (password.length < 6) {
+			return toast.error('Password at least have 6 character')
+		}
 		handleLoginUser(email, password);
 	};
 	// Handle User Email Password Login
@@ -54,6 +57,7 @@ const Login = () => {
 								className='input input-bordered'
 								name='email'
 								required
+								autoComplete='username'
 							/>
 						</div>
 						<div className='form-control'>
@@ -66,6 +70,7 @@ const Login = () => {
 								className='input input-bordered'
 								name='password'
 								required
+								autoComplete='current-password'
 							/>
 							<label className='label'>
 								<Link
@@ -85,7 +90,7 @@ const Login = () => {
 								to='/registration'
 								className='link link-hover'
 							>
-								Create New
+								Create New Account
 							</Link>
 						</label>
 					</form>

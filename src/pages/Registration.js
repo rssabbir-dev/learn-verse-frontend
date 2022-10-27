@@ -15,10 +15,15 @@ const Registration = () => {
 		const photoURL = form.photoURL.value;
 		const email = form.email.value;
 		const password = form.password.value;
-		handleCreateUser(email, password, name, photoURL);
+		if (password.length < 6) {
+			toast.error('Password at least have 6 character');
+			password.value = '';
+			return; 
+		}
+		handleCreateUser(email, password, name, photoURL, form);
 	};
 
-	const handleCreateUser = (email, password, name, photo) => {
+	const handleCreateUser = (email, password, name, photo, form) => {
 		createUser(email, password)
 			.then((res) => {
 				handleUpdateUserProfile(name, photo);
@@ -32,11 +37,11 @@ const Registration = () => {
 					.catch((error) => {
 						toast.error(error.message);
 					});
-				const user = res.user;
-				console.log(user);
+
+				form.reset();
 			})
 			.catch((error) => {
-				console.log(error);
+				form.reset();
 				toast.error(error.message);
 			});
 	};
@@ -49,7 +54,6 @@ const Registration = () => {
 				console.log('update name and photo');
 			})
 			.catch((error) => {
-				console.log(error);
 				toast.error(error.message);
 			});
 	};
@@ -82,7 +86,6 @@ const Registration = () => {
 								placeholder='Set Photo URL'
 								className='input input-bordered'
 								name='photoURL'
-								
 							/>
 						</div>
 						<div className='form-control'>
@@ -95,6 +98,7 @@ const Registration = () => {
 								className='input input-bordered'
 								name='email'
 								required
+								autoComplete='username'
 							/>
 						</div>
 						<div className='form-control'>
@@ -107,6 +111,7 @@ const Registration = () => {
 								className='input input-bordered'
 								name='password'
 								required
+								autoComplete='current-password'
 							/>
 							<label className='label'>
 								<Link
