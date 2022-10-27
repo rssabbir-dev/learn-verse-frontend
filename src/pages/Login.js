@@ -24,7 +24,6 @@ const Login = () => {
 		loginUser(email, password)
 			.then((res) => {
 				const user = res.user;
-				console.log(user);
 				if (user.emailVerified) {
 					toast.success('Login Success');
 					navigate(from, { replace: true });

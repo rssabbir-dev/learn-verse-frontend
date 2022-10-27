@@ -21,7 +21,7 @@ const Contact = () => {
 				></iframe>
 			</div>
 			<div className='container px-5 py-24 mx-auto flex'>
-				<div className='lg:w-1/3 md:w-1/2 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md'>
+				<div className='lg:w-1/3 md:w-1/2 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10'>
 					<div className='flex justify-center'>
 						<div className='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
 							<div className='card-body'>

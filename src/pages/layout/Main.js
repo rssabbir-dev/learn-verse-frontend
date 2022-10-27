@@ -16,8 +16,8 @@ const Main = () => {
 	useScrollToTop();
 	return (
 		<div className='space-y-20'>
+			<TopNavBar />
 			<div className='w-11/12 mx-auto space-y-10'>
-				<TopNavBar />
 				<Outlet />
 			</div>
 			<Footer />

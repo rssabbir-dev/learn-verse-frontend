@@ -51,7 +51,6 @@ const Registration = () => {
 		const profileData = { displayName: name, photoURL: photo };
 		updateUserProfile(profileData)
 			.then(() => {
-				console.log('update name and photo');
 			})
 			.catch((error) => {
 				toast.error(error.message);

@@ -32,9 +32,7 @@ const ProviderLogin = () => {
     const handleGitHubLogin = () => {
         const provider = new GithubAuthProvider();
 		signInWithProvider(provider)
-            .then((res) => {
-                const user = res.user;
-                console.log(user);
+            .then(() => {
 				toast.success('Login Success');
 				//navigate user previous page where they are first visit
 				navigate(from, { replace: true });

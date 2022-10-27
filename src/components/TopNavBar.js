@@ -8,6 +8,7 @@ import { BiLogIn } from 'react-icons/bi';
 import { useEffect } from 'react';
 import { themeChange } from 'theme-change';
 import logo from '../assets/img/logo-icon.png'
+import toast from 'react-hot-toast';
 
 const TopNavBar = () => {
 	// website theme change observer
@@ -20,7 +21,7 @@ const TopNavBar = () => {
 	const handleLogOut = () => {
 		logOut()
 			.then(() => {
-				console.log('logout');
+				toast.success('Log Out')
 			})
 			.catch((error) => {
 				console.log(error);
