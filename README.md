@@ -15,6 +15,7 @@ LearnVerse is a edTech platform in Bangladesh, we provide huge of learning mater
 - Course details page for give user better knowledge about courses.
 
 ### Technology used in this project
+
 - HTML
 - Tailwind
 - DaisyUI
