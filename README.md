@@ -1,7 +1,7 @@
 # LearnVerse - A Learning Platform For Everyone
 
 ## Live Website https://learn-verse-36a60.web.app/
-## Server or API Link https://learn-varse-backend.vercel.app/
+## Server Side Code Link https://github.com/rssabbir-dev/learn-verse-backend
 
 LearnVerse is a edTech platform in Bangladesh, we provide huge of learning material to our enrolled student for achieved there goal.
 
