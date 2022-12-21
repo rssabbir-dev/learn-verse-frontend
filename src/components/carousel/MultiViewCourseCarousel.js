@@ -10,17 +10,27 @@ import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper';
 import { serverURL } from '../../routes/routes';
 import ResponsiveCourseCard from '../ResponsiveCourseCard';
+import Spinner from '../Spinner';
 
 const MultiViewCourseCarousel = () => {
 	const [courses, setCourses] = useState([]);
+	const [loading, setLoading] = useState(true);
 	useEffect(() => {
+		setLoading(true);
 		fetch(`${serverURL}/courses/all`)
 			.then((res) => res.json())
-			.then((data) => setCourses(data))
+			.then((data) => {
+				setLoading(false);
+				setCourses(data);
+			})
 			.catch((error) => {
 				console.log(error);
+				setLoading(false);
 			});
-    }, []);
+	}, []);
+	if (loading) {
+		return <Spinner />;
+	}
 	return (
 		<>
 			<Swiper
@@ -28,7 +38,7 @@ const MultiViewCourseCarousel = () => {
 					clickable: true,
 				}}
 				navigation={true}
-				modules={[ Pagination, Autoplay]}
+				modules={[Pagination, Autoplay]}
 				autoplay={{
 					delay: 4000,
 					disableOnInteraction: false,
@@ -37,7 +47,10 @@ const MultiViewCourseCarousel = () => {
 			>
 				{courses.map((course) => (
 					<SwiperSlide key={course.id} className=''>
-                        <ResponsiveCourseCard course={course} rounded='rounded-none'/>
+						<ResponsiveCourseCard
+							course={course}
+							rounded='rounded-none'
+						/>
 					</SwiperSlide>
 				))}
 			</Swiper>
